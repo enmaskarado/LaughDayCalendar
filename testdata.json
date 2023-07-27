@@ -1,0 +1,21 @@
+[
+    {
+      "code": "ABC123",
+      "group": "Group1",
+      "maxdate": "2023-07-27",
+      "mindate": "2023-07-25"
+    },
+    {
+      "code": "XYZ789",
+      "group": "Group1",
+      "maxdate": "2023-07-26",
+      "mindate": "2023-07-24"
+    },
+    {
+      "code": "DEF456",
+      "group": "Group1",
+      "maxdate": "2023-07-28",
+      "mindate": "2023-07-26"
+    }
+  ]
+  

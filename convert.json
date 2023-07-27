@@ -1,0 +1,20 @@
+const convertedArray = inputArray.map(item => {
+    return {
+      [item.code]: {
+        minDate: item.mindate,
+        maxDate: item.maxdate
+      }
+    };
+  });
+  SELECT
+  code,
+  jsonb_build_object('minDate', mindate, 'maxDate', maxdate) AS dateObject
+FROM your_table_name;
+create table scientist (id integer, firstname varchar(100), lastname varchar(100));
+		insert into scientist (id, firstname, lastname) values (1, 'albert', 'einstein');
+		insert into scientist (id, firstname, lastname) values (2, 'isaac', 'newton');
+		insert into scientist (id, firstname, lastname) values (3, 'marie', 'curie');
+SELECT
+  id,
+  jsonb_build_object('FN', firstname) AS dateObject
+FROM scientist;
