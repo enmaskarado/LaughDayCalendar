@@ -7,4 +7,8 @@ export class Calendar {
   id: string;
   @OneToMany(() => Event, (event) => event.calendar)
   events: Event[];
+
+  constructor(data?: Partial<Calendar>) {
+    if (data) Object.assign(this, data);
+  }
 }

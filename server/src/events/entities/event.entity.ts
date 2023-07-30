@@ -50,11 +50,14 @@ export class Event {
   idCalendar: string;
 
   @ManyToOne(() => Calendar, (calendar) => calendar.events, {
-    nullable: false,
+    nullable: true,
   })
   @JoinColumn({
     name: 'id_calendar',
     referencedColumnName: 'id',
   })
   calendar: Calendar;
+  constructor(data?: Partial<Event>) {
+    if (data) Object.assign(this, data);
+  }
 }

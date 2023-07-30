@@ -1,26 +1,35 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { CreateEventDto } from './dto/create-event.dto';
 import { UpdateEventDto } from './dto/update-event.dto';
+import { EventsRepository } from './events.repository';
 
 @Injectable()
 export class EventsService {
-  create(createEventDto: CreateEventDto) {
-    return 'This action adds a new event';
+  constructor(
+    @Inject(EventsRepository)
+    private eventRepository: EventsRepository,
+  ) {}
+
+  async createEvent(eventDto: CreateEventDto) {
+    // const eventRepeated = await this.eventRepository.findByCode(eventDto.code);
+
+    // if (eventRepeated) {
+    //   throw new ConflictException('repeated event');
+    // }
+
+    return await this.eventRepository.createEvent(eventDto);
   }
 
-  findAll() {
-    return `This action returns all events`;
+  async listEvents(id: string) {
+    return await this.eventRepository.listEvents(id);
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} event`;
-  }
-
-  update(id: number, updateEventDto: UpdateEventDto) {
-    return `This action updates a #${id} event`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} event`;
+  async updateEvent(id: string, eventDto: UpdateEventDto) {
+    // const event = await this.eventRepository.findById(id);
+    // if (!event) {
+    //   throw new NotFoundException('Not found event');
+    // }
+    await this.eventRepository.updateEvent(id, eventDto);
+    return { id };
   }
 }
