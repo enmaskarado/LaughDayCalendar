@@ -1,5 +1,6 @@
 import { useDrop } from "react-dnd";
 import Task from "./Task";
+import '../task.css'
 // eslint-disable-next-line react/prop-types
 function Section({ status, todos, inProgress, closed, tasks, setTasks }) {
   let tasksMap = todos;
@@ -41,7 +42,7 @@ function Section({ status, todos, inProgress, closed, tasks, setTasks }) {
         <h3>{`Section ${status}`}</h3>
         {tasksMap.length > 0 &&
           tasksMap.map((task, index) => (
-            <div key={index} className="container mx-auto flex flex-row">
+            <div key={index} className="card">
               <Task key={index} task={task} tasks={tasks} setTasks={setTasks} />
             </div>
           ))}

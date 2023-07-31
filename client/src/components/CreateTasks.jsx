@@ -35,7 +35,7 @@ function CreateTasks({ tasks, setTasks ,loadData}) {
     e.preventDefault();
     setTasks((prev) => {
       const list = [...prev, task];
-      //localStorage.setItem("tasks", JSON.stringify(list));
+      localStorage.setItem("tasks", JSON.stringify(list));
       createTask();
       return list;
     });

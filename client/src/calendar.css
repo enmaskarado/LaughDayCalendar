@@ -1,0 +1,28 @@
+/* calendar.css */
+.calendar {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+.td {
+  border: 1px solid #ccc;
+  padding: 32px;
+  text-align: center;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* You can add more styles as needed to customize the calendar table */

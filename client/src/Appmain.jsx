@@ -5,7 +5,6 @@ import ListTasks from "./components/ListTasks";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import axios from "axios";
-import Calendar from "./components/Calendar";
 function App() {
   // const [tasks, setTasks] = useState([
   //   {
@@ -33,7 +32,6 @@ function App() {
       <div className="container">
         <CreateTasks tasks={tasks} setTasks={setTasks} loadData={loadData}/>
         <ListTasks tasks={tasks} setTasks={setTasks} />
-        <Calendar/>
       </div>
     </DndProvider>
   );

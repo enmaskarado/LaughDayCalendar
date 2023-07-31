@@ -1,0 +1,28 @@
+.task-card {
+  display: flex;
+  align-items: center;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 5px 0;
+}
+
+.task-card p {
+  flex: 1;
+  margin: 0;
+  padding: 5px;
+}
+
+.task-card button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.card {
+  max-width: 120px;
+}
+.delete-icon {
+  width: 20px;
+  height: 20px;
+  color: #0e81d8;
+}
