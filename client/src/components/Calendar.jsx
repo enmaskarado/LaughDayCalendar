@@ -15,7 +15,7 @@ function Calendar() {
     id: 1,
     x: 0,
     y: 0,
-    name: "read harry potter chapter 2",
+    name: "read harry potter",
     day: "",
     hour: "",
   });
@@ -32,7 +32,7 @@ function Calendar() {
   const saveTask = async () => {
     try {
       const body = JSON.stringify({
-        rrule: "tasks1",
+        rrule: taskRead.name,
         start_date: dayjs(taskRead.day).format("YYYY-MM-DD"),
         start_time: dayjs(`${taskRead.day} ${taskRead.hour}`).format(
           "YYYY-MM-DD hh:mm"
@@ -43,49 +43,46 @@ function Calendar() {
           .format("YYYY-MM-DD hh:mm"),
         idCalendar: "1",
       });
-      await axios.post(`/events`, body, config);
+      const respuesta = await axios.post(
+        `http://localhost:5000/events`,
+        body,
+        config
+      );
+      console.log("LLLLLLLLLLLLLLLLLLLLLLLLLl");
+      console.log(respuesta);
+      console.log("LLLLLLLLLLLLLLLLLLLLLLLLLl");
     } catch (err) {
       console.log(err);
     }
   };
   return (
     <div className="container">
+      <div
+        key={`${taskRead.id}-${taskRead.x}-${taskRead.y}`}
+        style={{
+          position: "absolute",
+          left: taskRead.x,
+          top: taskRead.y,
+        }}
+      >
+        <DraggableTask className="taskRead" task={taskRead} />
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          left: "500px",
+          top: "50px",
+        }}
+      >
+        <button
+          onClick={() => {
+            saveTask();
+          }}
+        >
+          SAVE
+        </button>
+      </div>
       <div className="calendar">
-        <div
-          key={`${taskRead.id}-${taskRead.x}-${taskRead.y}`}
-          style={{
-            position: "absolute",
-            left: taskRead.x,
-            top: taskRead.y,
-          }}
-        >
-          <DraggableTask className="taskRead" task={taskRead} />
-        </div>
-        {/* <div
-          key={`${taskRead[1].id}-${taskRead[1].x}-${taskRead[1].y}`}
-          style={{
-            position: "absolute",
-            left: taskRead[1].x,
-            top: taskRead[1].y,
-          }}
-        >
-          <DraggableTask className="taskRead" task={taskRead[1]} />
-        </div> */}
-        <div
-          style={{
-            position: "absolute",
-            left: "500px",
-            top: "50px",
-          }}
-        >
-          <button
-            onClick={() => {
-              saveTask();
-            }}
-          >
-            SAVE
-          </button>
-        </div>
         <table>
           <thead>
             <tr>

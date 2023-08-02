@@ -2,15 +2,18 @@
 .container{
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center;
   align-items: center;
-  text-align: center;
+  text-align: center; */
   min-height: 100vh;
-  max-width: 600px;
+  /* max-width: 600px; */
+
 }
 .calendar {
-  width: 100%;
-  margin: 0 auto;
+  /* width: 100%; */
+  /* margin: 0 auto; */
+  width: 350px;
+  padding: 5rem;
 }
 .tasks{
   width: 100px;
