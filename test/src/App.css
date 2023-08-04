@@ -124,10 +124,17 @@ h1 {
   margin-bottom: 1rem;
   margin-left:  15px;
   margin-right: 15px;
-  cursor: pointer;
-  
+  cursor: pointer; 
 }
-
+.dragging {
+  
+  background: #8758ff;
+  color: #fff;
+  max-width: 30px;
+}
+.select-day{
+  background-color: #8758ff;
+}
 .fa-trash {
   margin-left: 0.75rem;
 }

@@ -22,15 +22,17 @@ export const TodoWrapper = () => {
       )
     );
   };
+  const dayDate = '2023-07-12'
 
-  const editTodo = (id) => {
-    setTodos(
-      todos.map((todo) =>
-        todo.id === id ? { ...todo, isEditing: !todo.isEditing } : todo
-      )
-    );
+  const handleDrop = (taskId, dayDate, x, y, hour) => {
+    setTodos({
+      ...todos,
+      day: dayDate,
+      x,
+      y,
+      hour,
+    });
   };
-
   return (
     <div className="TodoWrapper">
       <div className="div1">
@@ -45,7 +47,9 @@ export const TodoWrapper = () => {
             toggleComplete={toggleComplete}
           />
         ))}
-        <button type="submit" className='todo-btn'>Save the task to the agenda</button>
+        <button type="submit" className="todo-btn">
+          Save the task to the agenda
+        </button>
       </div>
       <div className="div2">
         <h1>Calendar</h1>
@@ -61,38 +65,102 @@ export const TodoWrapper = () => {
             <li>S</li>
           </ul>
           <ul className="days">
-            <li><Day day={1 }/></li>
-            <li><Day day={2 }/></li>
-            <li><Day day={3 }/></li>
-            <li><Day day={4 }/></li>
-            <li><Day day={5 }/></li>
-            <li><Day day={6 }/></li>
-            <li><Day day={7 }/></li>
-            <li><Day day={8 }/></li>
-            <li><Day day={9 }/></li>
-            <li><Day day={10}/></li>
-            <li><Day day={11}/></li>
-            <li><Day day={12}/></li>
-            <li><Day day={13}/></li>
-            <li><Day day={14}/></li>
-            <li><Day day={15}/></li>
-            <li><Day day={16}/></li>
-            <li><Day day={17}/></li>
-            <li><Day day={18}/></li>
-            <li><Day day={19}/></li>
-            <li><Day day={20}/></li>
-            <li><Day day={21}/></li>
-            <li><Day day={22}/></li>
-            <li><Day day={23}/></li>
-            <li><Day day={24}/></li>
-            <li><Day day={25}/></li>
-            <li><Day day={26}/></li>
-            <li><Day day={27}/></li>
-            <li><Day day={28}/></li>
-            <li><Day day={29}/></li>
-            <li><Day day={30}/></li>
-            <li><Day day={31}/></li>
+            <li>
+              <Day day={1} onDrop={handleDrop} dayDate={dayDate} />
+            </li>
+            <li>
+              <Day day={2} onDrop={handleDrop} dayDate={dayDate} />
+            </li>
+            <li>
+              <Day day={3} onDrop={handleDrop} dayDate={dayDate} />
+            </li>
+            <li>
+              <Day day={4} onDrop={handleDrop} dayDate={dayDate} />
+            </li>
+            <li>
+              <Day day={5} onDrop={handleDrop} dayDate={dayDate} />
+            </li>
+            <li>
+              <Day day={6} onDrop={handleDrop} dayDate={dayDate} />
+            </li>
+            <li>
+              <Day day={7} onDrop={handleDrop} dayDate={dayDate} />
+            </li>
+            <li>
+              <Day day={8} onDrop={handleDrop} dayDate={dayDate} />
+            </li>
+            <li>
+              <Day day={9} onDrop={handleDrop} dayDate={dayDate} />
+            </li>
+            <li>
+              <Day day={10} onDrop={handleDrop} dayDate={dayDate} />
+            </li>
+            <li>
+              <Day day={11} onDrop={handleDrop} dayDate={dayDate} />
+            </li>
+            <li>
+              <Day day={12} onDrop={handleDrop} dayDate={dayDate} />
+            </li>
+            <li>
+              <Day day={13} onDrop={handleDrop} dayDate={dayDate} />
+            </li>
+            <li>
+              <Day day={14} onDrop={handleDrop} dayDate={dayDate} />
+            </li>
+            <li>
+              <Day day={15} onDrop={handleDrop} dayDate={dayDate} />
+            </li>
+            <li>
+              <Day day={16} onDrop={handleDrop} dayDate={dayDate} />
+            </li>
+            <li>
+              <Day day={17} onDrop={handleDrop} dayDate={dayDate} />
+            </li>
+            <li>
+              <Day day={18} onDrop={handleDrop} dayDate={dayDate} />
+            </li>
+            <li>
+              <Day day={19} onDrop={handleDrop} dayDate={dayDate} />
+            </li>
+            <li>
+              <Day day={20} onDrop={handleDrop} dayDate={dayDate} />
+            </li>
+            <li>
+              <Day day={21} onDrop={handleDrop} dayDate={dayDate} />
+            </li>
+            <li>
+              <Day day={22} onDrop={handleDrop} dayDate={dayDate} />
+            </li>
+            <li>
+              <Day day={23} onDrop={handleDrop} dayDate={dayDate} />
+            </li>
+            <li>
+              <Day day={24} onDrop={handleDrop} dayDate={dayDate} />
+            </li>
+            <li>
+              <Day day={25} onDrop={handleDrop} dayDate={dayDate} />
+            </li>
+            <li>
+              <Day day={26} onDrop={handleDrop} dayDate={dayDate} />
+            </li>
+            <li>
+              <Day day={27} onDrop={handleDrop} dayDate={dayDate} />
+            </li>
+            <li>
+              <Day day={28} onDrop={handleDrop} dayDate={dayDate} />
+            </li>
+            <li>
+              <Day day={29} onDrop={handleDrop} dayDate={dayDate} />
+            </li>
+            <li>
+              <Day day={30} onDrop={handleDrop} dayDate={dayDate} />
+            </li>
+            <li>
+              <Day day={31} onDrop={handleDrop} dayDate={dayDate} />
+            </li>
           </ul>
+          onDrop={handleDrop}
+          dayDate={dayDate}{" "}
         </div>
       </div>
     </div>
