@@ -1,7 +1,8 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { CreateEventDto } from './dto/create-event.dto';
+import { CreateEventDto, CreateEventsDto } from './dto/create-event.dto';
 import { UpdateEventDto } from './dto/update-event.dto';
 import { EventsRepository } from './events.repository';
+import { EntityManager } from 'typeorm';
 
 @Injectable()
 export class EventsService {
@@ -18,6 +19,18 @@ export class EventsService {
     // }
 
     return await this.eventRepository.createEvent(eventDto);
+  }
+
+  async createEvents(eventsDto: CreateEventsDto) {
+    // const eventRepeated = await this.eventRepository.findByCode(eventDto.code);
+    // if (eventRepeated) {
+    //   throw new ConflictException('repeated event');
+    // }
+    const op = async (transaction: EntityManager) => {
+      return await this.eventRepository.createEvents(eventsDto, transaction);
+    };
+    const result = await this.eventRepository.runTransaction(op);
+    return result;
   }
 
   async listEvents(id: string) {

@@ -13,3 +13,6 @@ export class CreateEventDto {
   @IsNotEmpty()
   rrule: string;
 }
+export class CreateEventsDto {
+  events: CreateEventDto[];
+}

@@ -8,7 +8,7 @@ import {
   Delete,
 } from '@nestjs/common';
 import { EventsService } from './events.service';
-import { CreateEventDto } from './dto/create-event.dto';
+import { CreateEventDto, CreateEventsDto } from './dto/create-event.dto';
 import { UpdateEventDto } from './dto/update-event.dto';
 
 @Controller('events')
@@ -18,6 +18,10 @@ export class EventsController {
   @Post()
   create(@Body() createEventDto: CreateEventDto) {
     return this.eventsService.createEvent(createEventDto);
+  }
+  @Post('save-events')
+  createEvents(@Body() createEventsDto: CreateEventsDto) {
+    return this.eventsService.createEvents(createEventsDto);
   }
   @Get(':id')
   findAll(@Param('id') id: string) {
