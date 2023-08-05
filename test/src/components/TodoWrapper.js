@@ -47,13 +47,11 @@ export const TodoWrapper = () => {
         return newTodo;
       });
       const body = { events: data };
-      const respuesta = await axios.post(
+      await axios.post(
         `http://localhost:5000/events/save-events`,
         body,
         config
       );
-      console.log('LLLLLLLLLLLLLLLLLLLLLLLLll');
-      console.log(respuesta);
     } catch (err) {
       console.log(err);
     }
