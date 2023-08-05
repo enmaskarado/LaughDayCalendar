@@ -34,8 +34,8 @@ export const TodoWrapper = () => {
   };
   const saveTask = async () => {
     try {
-      const data = await todos.map(async (todo) => {
-        const body = JSON.stringify({
+      const data = todos.map((todo) => {
+        const newTodo = {
           id: todo.id,
           rrule: todo.task,
           start_date: todo.day,
@@ -43,14 +43,17 @@ export const TodoWrapper = () => {
           end_date: todo.day,
           end_time: todo.day,
           idCalendar: "1",
-        });
-        const respuesta = await axios.post(
-          `http://localhost:5000/events`,
-          body,
-          config
-        );
-        return respuesta;
+        };
+        return newTodo;
       });
+      const body = { events: data };
+      const respuesta = await axios.post(
+        `http://localhost:5000/events/save-events`,
+        body,
+        config
+      );
+      console.log('LLLLLLLLLLLLLLLLLLLLLLLLll');
+      console.log(respuesta);
     } catch (err) {
       console.log(err);
     }

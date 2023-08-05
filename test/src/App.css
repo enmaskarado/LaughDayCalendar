@@ -14,7 +14,7 @@ body {
   align-items: center;
 }
 .div1{
-  border: 2px solid red;
+  /* border: 2px solid red; */
   float: left;
   height: 80%;
   width: auto;
